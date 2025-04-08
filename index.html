@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Black & Bold</title>
+  <style>
+    /* Reset & Base */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      /* Custom scroll bar for WebKit browsers */
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1f1f1f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #ff5c5c;
+      border-radius: 10px;
+      border: 2px solid #1f1f1f;
+    }
+
+    /* Optional overlay for readability */
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #1f1f1f;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.5rem;
+      color: #ff5c5c;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    .menu a:hover {
+      color: #ff5c5c;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px;
+      transition: 0.3s;
+    }
+    @media screen and (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 2rem;
+        top: 70px;
+        background: #1f1f1f;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+      .menu.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    .btn {
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background: #ff5c5c;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #e04a4a;
+    }
+    .action-buttons a {
+      margin: 0 10px;
+    }
+    /* About Section Style */
+    #about {
+      padding: 4rem 2rem;
+      background: #1f1f1f;
+      text-align: center;
+    }
+    #about h2 {
+      color: #ff5c5c;
+      margin-bottom: 1rem;
+    }
+    #about p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    /* Our Team Section Style */
+    #ourteam {
+      padding: 4rem 2rem;
+      background: #121212;
+      text-align: center;
+    }
+    #ourteam h2 {
+      color: #ff5c5c;
+      margin-bottom: 2rem;
+    }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .team-member {
+      background: #1f1f1f;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 250px;
+    }
+    .team-member img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+    .team-member h3 {
+      margin: 0.5rem 0;
+    }
+    .team-member p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <div class="logo">Black & Bold</div>
+      <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="menu" id="menu">
+          <a onclick="scrollToSection('home')">Home</a>
+          <a onclick="scrollToSection('about')">About</a>
+          <a href="https://www.canva.com/" target="_blank">Design</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Home Section -->
+    <main id="home">
+      <h1 id="welcomeText">Welcome to Black & Bold</h1>
+      <p>Your creative design space.</p>
+      <div class="action-buttons">
+        <a href="https://www.canva.com/" target="_blank">
+          <button class="btn">Start Designing</button>
+        </a>
+        <a href="signup.html" style="margin-left: 10px;">
+          <button class="btn">Sign Up</button>
+        </a>
+      </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Black & Bold is your creative hub – a space where innovation meets design.
+        Our platform is dedicated to inspiring creativity through modern design tools,
+        interactive galleries, and a community-driven experience. Whether you're a
+        seasoned professional or just starting out, we help you bring your creative ideas to life.
+      </p>
+    </section>
+  </div>
+ <!-- Our Team Section -->
+ <section id="ourteam">
+  <h2>Our Team</h2>
+  <div class="team-container">
+    <!-- Team Member 1 -->
+    <div class="team-member">
+      <h3>Okeke Omasilichukwu</h3>
+      <p>Project manager</p>
+    </div>
+    <!-- Team Member 2 -->
+    <div class="team-member">
+      <h3>Ekefre Adriel</h3>
+      <p>Branding manager</p>
+    </div>
+    <!-- Team Member 3 -->
+    <div class="team-member">
+      <h3>Chiawa Angel</h3>
+      <p>UX/UI Specialist</p>
+    </div>
+    <!-- Team Member 4 -->
+    <div class="team-member">
+      <h3>Ifunanya Sharon</h3>
+      <p>SEO</p>
+    </div>
+    <!-- Team Member 5 -->
+    <div class="team-member">
+      <h3>Terumah Nathaniel</h3>
+      <p>Software Developer</p>
+    </div>
+  </div>
+</section>
+</div>
+
+  <div>
+    <section id="contact">
+      <h1>Contact Us</h1>
+  <p>Email: blackandbold7703@gmail.com</p>
+  <p>Phone number: +234 9052304935</p>
+  <a href="index.html" style="color:#ff5c5c;">Go back to Home</a>
+
+    </section>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+  
+    // Smooth scrolling for sections
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  
+    // Retrieve the current user from localStorage
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const welcomeText = document.getElementById('welcomeText');
+      welcomeText.textContent = Welcome, ${currentUser}!;
+    }
+  </script>
+</body>
+</html>
